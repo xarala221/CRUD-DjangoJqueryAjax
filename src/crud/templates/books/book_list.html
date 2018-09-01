@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block javascript %}
+  <script src="{% static 'books/js/books.js' %}"></script>
+{% endblock %}
+  {% block content %}
+  <h1 class="page-header">Books</h1>
+
+  <!-- BUTTON TO TRIGGER THE ACTIONdata-target="modal-book" -->
+  <button type="button"
+              class="btn btn-primary js-create-book"
+              data-url="{% url 'book_create' %}">
+        <span class="glyphicon glyphicon-plus"></span>
+        New book
+      </button>
+
+
+    <!-- TABLE CONTENT SUPPRESSED FOR BREVITY'S SAKE -->
+
+  <table class="table" id="book-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Type</th>
+        <th>Publication date</th>
+        <th>Pages</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% include 'books/includes/partial_book_list.html' %}
+    </tbody>
+  </table>
+
+<div class="container">
+      <footer>by : <span class="badge badge-pill-info"> mstspr1155@gmail.com</span></footer>
+    </div>
+  <!-- THE MODAL WE WILL BE USING -->
+  <div class="modal fade" id="modal-book">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      </div>
+    </div>
+
+    
+{% endblock %}
